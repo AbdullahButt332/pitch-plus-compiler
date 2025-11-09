@@ -1,0 +1,266 @@
+=== Expected Token Output for test_program.pitch ===
+
+This file shows the expected output when running:
+  ./scanner test_program.pitch
+
+The actual output will be in tokens.txt after running the scanner.
+
+=========================================================================================
+
+=== Pitch++ Lexical Analyzer Output ===
+Input File: test_program.pitch
+
+Line 5: KEYWORD → PLAY
+Line 5: PUNCTUATION → (
+Line 5: PUNCTUATION → )
+Line 5: PUNCTUATION → {
+Line 7: KEYWORD → OPENER
+Line 7: IDENTIFIER → TOTALRUNS
+Line 7: OPERATOR → =
+Line 7: NUMBER → 0
+Line 7: PUNCTUATION → ~
+Line 8: KEYWORD → OPENER
+Line 8: IDENTIFIER → TARGET
+Line 8: OPERATOR → =
+Line 8: NUMBER → 150
+Line 8: PUNCTUATION → ~
+Line 9: KEYWORD → OPENER
+Line 9: IDENTIFIER → WICKETS
+Line 9: OPERATOR → =
+Line 9: NUMBER → 0
+Line 9: PUNCTUATION → ~
+Line 10: KEYWORD → ALLROUNDER
+Line 10: IDENTIFIER → RUNRATE
+Line 10: OPERATOR → =
+Line 10: NUMBER → 0.0
+Line 10: PUNCTUATION → ~
+Line 11: KEYWORD → TEXTBOOK
+Line 11: IDENTIFIER → TEAMNAME
+Line 11: OPERATOR → =
+Line 11: STRING → "PAKISTAN"
+Line 11: PUNCTUATION → ~
+Line 12: KEYWORD → OPENER
+Line 12: IDENTIFIER → BALLSPLAYED
+Line 12: OPERATOR → =
+Line 12: NUMBER → 0
+Line 12: PUNCTUATION → ~
+Line 15: KEYWORD → RUN
+Line 15: PUNCTUATION → (
+Line 15: STRING → "Cricket Match Started!"
+Line 15: PUNCTUATION → )
+Line 15: PUNCTUATION → ~
+Line 16: KEYWORD → RUN
+Line 16: PUNCTUATION → (
+Line 16: IDENTIFIER → TEAMNAME
+Line 16: PUNCTUATION → )
+Line 16: PUNCTUATION → ~
+Line 19: KEYWORD → OVER
+Line 19: PUNCTUATION → (
+Line 19: KEYWORD → OPENER
+Line 19: IDENTIFIER → I
+Line 19: OPERATOR → =
+Line 19: NUMBER → 0
+Line 19: PUNCTUATION → ~
+Line 19: IDENTIFIER → I
+Line 19: OPERATOR → <
+Line 19: NUMBER → 20
+Line 19: PUNCTUATION → ~
+Line 19: IDENTIFIER → I
+Line 19: OPERATOR → +++
+Line 19: PUNCTUATION → )
+Line 19: PUNCTUATION → {
+Line 20: IDENTIFIER → BALLSPLAYED
+Line 20: OPERATOR → =
+Line 20: IDENTIFIER → BALLSPLAYED
+Line 20: OPERATOR → +
+Line 20: NUMBER → 6
+Line 20: PUNCTUATION → ~
+Line 22: KEYWORD → TOSS
+Line 22: PUNCTUATION → (
+Line 22: IDENTIFIER → WICKETS
+Line 22: OPERATOR → <
+Line 22: NUMBER → 10
+Line 22: PUNCTUATION → )
+Line 22: PUNCTUATION → {
+Line 23: KEYWORD → OPENER
+Line 23: IDENTIFIER → RUNSSCORED
+Line 23: OPERATOR → =
+Line 23: NUMBER → 8
+Line 23: PUNCTUATION → ~
+Line 24: IDENTIFIER → TOTALRUNS
+Line 24: OPERATOR → =
+Line 24: IDENTIFIER → TOTALRUNS
+Line 24: OPERATOR → +
+Line 24: IDENTIFIER → RUNSSCORED
+Line 24: PUNCTUATION → ~
+Line 27: KEYWORD → TOSS
+Line 27: PUNCTUATION → (
+Line 27: IDENTIFIER → RUNSSCORED
+Line 27: OPERATOR → ===
+Line 27: NUMBER → 0
+Line 27: PUNCTUATION → )
+Line 27: PUNCTUATION → {
+Line 28: IDENTIFIER → WICKETS
+Line 28: OPERATOR → +++
+Line 28: PUNCTUATION → ~
+Line 29: KEYWORD → RUN
+Line 29: PUNCTUATION → (
+Line 29: STRING → "Wicket fallen!"
+Line 29: PUNCTUATION → )
+Line 29: PUNCTUATION → ~
+Line 30: PUNCTUATION → }
+Line 32: KEYWORD → UMPIRE
+Line 32: PUNCTUATION → {
+Line 33: KEYWORD → RUN
+Line 33: PUNCTUATION → (
+Line 33: STRING → "Runs scored"
+Line 33: PUNCTUATION → )
+Line 33: PUNCTUATION → ~
+Line 34: PUNCTUATION → }
+Line 35: PUNCTUATION → }
+Line 38: KEYWORD → TOSS
+Line 38: PUNCTUATION → (
+Line 38: IDENTIFIER → WICKETS
+Line 38: OPERATOR → ===
+Line 38: NUMBER → 10
+Line 38: PUNCTUATION → )
+Line 38: PUNCTUATION → {
+Line 39: KEYWORD → OUT
+Line 39: PUNCTUATION → ~
+Line 40: PUNCTUATION → }
+Line 41: PUNCTUATION → }
+Line 44: IDENTIFIER → RUNRATE
+Line 44: OPERATOR → =
+Line 44: IDENTIFIER → TOTALRUNS
+Line 44: OPERATOR → /
+Line 44: NUMBER → 20.0
+Line 44: PUNCTUATION → ~
+Line 47: KEYWORD → TOSS
+Line 47: PUNCTUATION → (
+Line 47: IDENTIFIER → TOTALRUNS
+Line 47: OPERATOR → >=
+Line 47: IDENTIFIER → TARGET
+Line 47: PUNCTUATION → )
+Line 47: PUNCTUATION → {
+Line 48: KEYWORD → RUN
+Line 48: PUNCTUATION → (
+Line 48: STRING → "Target achieved! Victory!"
+Line 48: PUNCTUATION → )
+Line 48: PUNCTUATION → ~
+Line 49: PUNCTUATION → }
+Line 50: KEYWORD → UMPIRE
+Line 50: PUNCTUATION → {
+Line 51: KEYWORD → TOSS
+Line 51: PUNCTUATION → (
+Line 51: IDENTIFIER → TOTALRUNS
+Line 51: OPERATOR → <
+Line 51: IDENTIFIER → TARGET
+Line 51: PUNCTUATION → )
+Line 51: PUNCTUATION → {
+Line 52: KEYWORD → RUN
+Line 52: PUNCTUATION → (
+Line 52: STRING → "Target not achieved!"
+Line 52: PUNCTUATION → )
+Line 52: PUNCTUATION → ~
+Line 53: PUNCTUATION → }
+Line 54: PUNCTUATION → }
+Line 57: KEYWORD → OPENER
+Line 57: IDENTIFIER → CHASING
+Line 57: OPERATOR → =
+Line 57: KEYWORD → LEGALBALL
+Line 57: PUNCTUATION → ~
+Line 58: KEYWORD → INNING
+Line 58: PUNCTUATION → (
+Line 58: IDENTIFIER → CHASING
+Line 58: OPERATOR → ===
+Line 58: KEYWORD → LEGALBALL
+Line 58: PUNCTUATION → )
+Line 58: PUNCTUATION → {
+Line 59: KEYWORD → OPENER
+Line 59: IDENTIFIER → REQUIRED
+Line 59: OPERATOR → =
+Line 59: IDENTIFIER → TARGET
+Line 59: OPERATOR → -
+Line 59: IDENTIFIER → TOTALRUNS
+Line 59: PUNCTUATION → ~
+Line 61: KEYWORD → TOSS
+Line 61: PUNCTUATION → (
+Line 61: IDENTIFIER → REQUIRED
+Line 61: OPERATOR → <=
+Line 61: NUMBER → 0
+Line 61: PUNCTUATION → )
+Line 61: PUNCTUATION → {
+Line 62: IDENTIFIER → CHASING
+Line 62: OPERATOR → =
+Line 62: KEYWORD → NOBALL
+Line 62: PUNCTUATION → ~
+Line 63: KEYWORD → OUT
+Line 63: PUNCTUATION → ~
+Line 64: PUNCTUATION → }
+Line 66: KEYWORD → NOTOUT
+Line 66: PUNCTUATION → ~
+Line 67: PUNCTUATION → }
+Line 70: KEYWORD → RUN
+Line 70: PUNCTUATION → (
+Line 70: STRING → "Match Complete!"
+Line 70: PUNCTUATION → )
+Line 70: PUNCTUATION → ~
+Line 71: KEYWORD → RUN
+Line 71: PUNCTUATION → (
+Line 71: STRING → "Total Runs: "
+Line 71: PUNCTUATION → )
+Line 71: PUNCTUATION → ~
+Line 72: KEYWORD → RUN
+Line 72: PUNCTUATION → (
+Line 72: IDENTIFIER → TOTALRUNS
+Line 72: PUNCTUATION → )
+Line 72: PUNCTUATION → ~
+Line 73: KEYWORD → RUN
+Line 73: PUNCTUATION → (
+Line 73: STRING → "Wickets: "
+Line 73: PUNCTUATION → )
+Line 73: PUNCTUATION → ~
+Line 74: KEYWORD → RUN
+Line 74: PUNCTUATION → (
+Line 74: IDENTIFIER → WICKETS
+Line 74: PUNCTUATION → )
+Line 74: PUNCTUATION → ~
+Line 76: KEYWORD → RETIRE
+Line 76: NUMBER → 0
+Line 76: PUNCTUATION → ~
+Line 77: PUNCTUATION → }
+Line 80: KEYWORD → TEAM
+Line 80: IDENTIFIER → CRICKET
+Line 80: PUNCTUATION → {
+Line 81: KEYWORD → OPENER
+Line 81: IDENTIFIER → PLAYERS
+Line 81: OPERATOR → =
+Line 81: NUMBER → 11
+Line 81: PUNCTUATION → ~
+Line 82: KEYWORD → TEXTBOOK
+Line 82: IDENTIFIER → CAPTAIN
+Line 82: OPERATOR → =
+Line 82: STRING → "BABAR"
+Line 82: PUNCTUATION → ~
+Line 83: KEYWORD → ALLROUNDER
+Line 83: IDENTIFIER → AVERAGE
+Line 83: OPERATOR → =
+Line 83: NUMBER → 45.5
+Line 83: PUNCTUATION → ~
+Line 84: PUNCTUATION → }
+
+=== Analysis Complete ===
+Total lines: 84
+Errors: 0
+
+=========================================================================================
+
+Note: This is a SAMPLE output showing what you should expect.
+The actual tokens.txt will be generated when you compile and run the scanner.
+
+To generate this output:
+1. Install Flex and GCC
+2. Run: make
+3. Run: make run
+4. Check: tokens.txt
+

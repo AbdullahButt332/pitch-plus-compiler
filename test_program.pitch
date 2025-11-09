@@ -1,0 +1,85 @@
+// Pitch++ Sample Program
+// Cricket Match Simulator
+// Author: Abdullah Butt
+
+PLAY() {
+    // Initialize match variables
+    OPENER TOTALRUNS = 0~
+    OPENER TARGET = 150~
+    OPENER WICKETS = 0~
+    ALLROUNDER RUNRATE = 0.0~
+    TEXTBOOK TEAMNAME = "PAKISTAN"~
+    OPENER BALLSPLAYED = 0~
+    
+    // Start the match
+    RUN("Cricket Match Started!")~
+    RUN(TEAMNAME)~
+    
+    // First innings - batting loop
+    OVER(OPENER I = 0~ I < 20~ I+++) {
+        BALLSPLAYED = BALLSPLAYED + 6~
+        
+        TOSS(WICKETS < 10) {
+            OPENER RUNSSCORED = 8~
+            TOTALRUNS = TOTALRUNS + RUNSSCORED~
+            
+            // Check for wicket
+            TOSS(RUNSSCORED === 0) {
+                WICKETS+++~
+                RUN("Wicket fallen!")~
+            }
+            
+            UMPIRE {
+                RUN("Runs scored")~
+            }
+        }
+        
+        // Check if all out
+        TOSS(WICKETS === 10) {
+            OUT~
+        }
+    }
+    
+    // Calculate run rate
+    RUNRATE = TOTALRUNS / 20.0~
+    
+    // Check if target achieved
+    TOSS(TOTALRUNS >= TARGET) {
+        RUN("Target achieved! Victory!")~
+    }
+    UMPIRE {
+        TOSS(TOTALRUNS < TARGET) {
+            RUN("Target not achieved!")~
+        }
+    }
+    
+    // Second innings simulation
+    OPENER CHASING = LEGALBALL~
+    INNING(CHASING === LEGALBALL) {
+        OPENER REQUIRED = TARGET - TOTALRUNS~
+        
+        TOSS(REQUIRED <= 0) {
+            CHASING = NOBALL~
+            OUT~
+        }
+        
+        NOTOUT~
+    }
+    
+    // Display final score
+    RUN("Match Complete!")~
+    RUN("Total Runs: ")~
+    RUN(TOTALRUNS)~
+    RUN("Wickets: ")~
+    RUN(WICKETS)~
+    
+    RETIRE 0~
+}
+
+// Team class definition
+TEAM CRICKET {
+    OPENER PLAYERS = 11~
+    TEXTBOOK CAPTAIN = "BABAR"~
+    ALLROUNDER AVERAGE = 45.5~
+}
+

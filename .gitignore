@@ -1,0 +1,41 @@
+# Pitch++ Compiler - Git Ignore File
+
+# Compiled binaries
+scanner
+scanner.exe
+*.exe
+*.out
+
+# Generated C files from Flex
+lex.yy.c
+lex.yy.h
+
+# Object files
+*.o
+*.obj
+
+# Output files (keep in repo for demo, but can be regenerated)
+# tokens.txt
+# errors.log
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System files
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+

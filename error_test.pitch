@@ -1,0 +1,9 @@
+PLAY() {
+    OPENER SCORE = 100~
+    opener invalid = 50~
+    OPENER 123ABC = 10~
+    OPENER TEST@ = 5~
+    TEXTBOOK NAME = "Testing errors"~
+    RETIRE 0~
+}
+
