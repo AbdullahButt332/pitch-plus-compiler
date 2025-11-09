@@ -77,118 +77,7 @@ TABLE OF REGEX DEFINITIONS:
 +------------------+--------------------------------+----------------------------+
 
 =================================================================================
-                    3. FINITE AUTOMATA DIAGRAMS
-=================================================================================
-
-A. IDENTIFIER FINITE AUTOMATON:
-
-   Description: Recognizes identifiers starting with uppercase letter [A-Z],
-                followed by any number of uppercase letters or digits [0-9]
-
-   Regex: [A-Z]([A-Z]|[0-9])*
-
-   State Diagram:
-
-        A-Z              A-Z, 0-9
-   ───────────>  (q1) ──────────> ((q2 - Accept))
-   (Start)              │               ^
-                        └───────────────┘
-                          A-Z, 0-9
-
-   States:
-   - Start: Initial state
-   - q1: Received first uppercase letter (accepting state)
-   - q2: Continue receiving uppercase letters or digits (accepting state)
-
-   Examples:
-   - RUNS       ✓ (Valid)
-   - SCORE123   ✓ (Valid)
-   - A1B2C3     ✓ (Valid)
-   - 123ABC     ✗ (Invalid - starts with digit)
-   - score      ✗ (Invalid - lowercase)
-
-
-B. NUMBER FINITE AUTOMATON:
-
-   Description: Recognizes integers and floating-point numbers
-                with optional +/- sign
-
-   Regex: [+-]?([0-9]+ | [0-9]*\.[0-9]+)
-
-   State Diagram for INTEGER:
-
-        +,-              0-9           0-9
-   ─────────>  (q1) ──────────> (q2) ────────> ((Accept))
-   (Start)      │                │         ^
-                │                └─────────┘
-                │                   0-9
-                └────────────────────────> (q2)
-                        0-9
-
-
-   State Diagram for FLOAT:
-
-        +,-              0-9           .            0-9
-   ─────────>  (q1) ──────────> (q2) ───> (q3) ────────> ((q4 - Accept))
-   (Start)      │                                   ^
-                │                                   │
-                │                                   │
-                └──────────────────────> (q3) ──────┘
-                        .                    0-9
-
-   States:
-   - Start: Initial state
-   - q1: Received optional sign
-   - q2: Receiving integer digits (accepting for integers)
-   - q3: Received decimal point
-   - q4: Receiving decimal digits (accepting for floats)
-
-   Examples:
-   - 123        ✓ (Valid integer)
-   - +456       ✓ (Valid integer with sign)
-   - -789       ✓ (Valid integer with sign)
-   - 3.14       ✓ (Valid float)
-   - -2.5       ✓ (Valid float with sign)
-   - .99        ✓ (Valid float)
-   - 12.        ✗ (Invalid - no digits after decimal)
-
-
-C. OPERATORS FINITE AUTOMATON:
-
-   Multiple operators with different paths:
-
-   Simple operators (+, -, *, /):
-   (Start) ──[+]──> (Accept)
-   (Start) ──[-]──> (Accept)
-   (Start) ──[*]──> (Accept)
-   (Start) ──[/]──> (Accept)
-
-   Multi-character operators:
-   (Start) ──[=]──> (q1) ──[=]──> (q2) ──[=]──> (Accept ===)
-                     │
-                     └──────────────────────────> (Accept =)
-
-   (Start) ──[+]──> (q1) ──[+]──> (q2) ──[+]──> (Accept +++)
-                     │
-                     └──────────────────────────> (Accept +)
-
-   Similar patterns for <, >, !, etc.
-
-
-D. KEYWORDS FINITE AUTOMATON:
-
-   Example for "OPENER":
-
-   (Start)─[O]─>(q1)─[P]─>(q2)─[E]─>(q3)─[N]─>(q4)─[E]─>(q5)─[R]─>((Accept))
-
-   Each keyword has its own specific path.
-   The lexer matches the longest keyword first.
-
-   Note: All 15 keywords follow similar deterministic paths.
-
-
-=================================================================================
-                        4. KEYWORDS EXPLANATION
+                        3. KEYWORDS EXPLANATION
 =================================================================================
 
 Total Keywords: 15 (All Cricket-Themed)
@@ -271,7 +160,7 @@ This makes the language intuitive and memorable for cricket enthusiasts!
 
 
 =================================================================================
-                    5. OPERATORS AND PUNCTUATIONS
+                    4. OPERATORS AND PUNCTUATIONS
 =================================================================================
 
 A. OPERATORS (13 Total):
@@ -324,7 +213,7 @@ REASON FOR CHOOSING:
 
 
 =================================================================================
-                        6. IMPLEMENTATION DETAILS
+                        5. IMPLEMENTATION DETAILS
 =================================================================================
 
 LEXICAL ANALYZER STRUCTURE:
@@ -356,7 +245,7 @@ LEXICAL ANALYZER STRUCTURE:
 
 
 =================================================================================
-                        7. SAMPLE TEST PROGRAM
+                        6. SAMPLE TEST PROGRAM
 =================================================================================
 
 File: test_program.pitch
@@ -429,7 +318,7 @@ TEAM CRICKET {
 
 
 =================================================================================
-                        8. EXPECTED OUTPUT (tokens.txt)
+                        7. EXPECTED OUTPUT (tokens.txt)
 =================================================================================
 
 === Pitch++ Lexical Analyzer Output ===
@@ -458,7 +347,7 @@ Errors: 0
 
 
 =================================================================================
-                        9. ERROR HANDLING EXAMPLES
+                        8. ERROR HANDLING EXAMPLES
 =================================================================================
 
 TEST CASE 1: Lowercase Identifier
