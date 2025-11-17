@@ -1,3 +1,4 @@
+Line 2: ERROR → abc (invalid token)
 Line 3: ERROR → opener (invalid token)
 Line 3: ERROR → invalid (invalid token)
 Line 4: ERROR → 123ABC (invalid token)

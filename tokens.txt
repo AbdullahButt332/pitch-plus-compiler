@@ -1,12 +1,12 @@
 === Pitch++ Lexical Analyzer Output ===
-Input File: error_test.pitch
+Input File: Errors.pitch
 
 Line 1: KEYWORD → PLAY
 Line 1: PUNCTUATION → (
 Line 1: PUNCTUATION → )
 Line 1: PUNCTUATION → {
 Line 2: KEYWORD → OPENER
-Line 2: IDENTIFIER → SCORE
+Line 2: NUMBER → 123
 Line 2: OPERATOR → =
 Line 2: NUMBER → 100
 Line 2: PUNCTUATION → ~
@@ -34,4 +34,4 @@ Line 8: PUNCTUATION → }
 
 === Analysis Complete ===
 Total lines: 9
-Errors: 4
+Errors: 5

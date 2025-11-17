@@ -1,0 +1,26 @@
+// Test file to verify identifier validation
+// Valid identifiers should be uppercase letters followed by uppercase letters or digits
+// Invalid identifiers should be caught as a single error
+
+PLAY() {
+    // VALID IDENTIFIERS (should work)
+    OPENER VALIDID = 10~
+    OPENER ABC123 = 20~
+    OPENER X1Y2Z3 = 30~
+    OPENER A = 5~
+    OPENER TEST99 = 100~
+    
+    // INVALID IDENTIFIERS (should show error)
+    OPENER abc123 = 40~        // Invalid: starts with lowercase
+    OPENER test = 50~          // Invalid: all lowercase
+    OPENER myVar = 60~         // Invalid: starts with lowercase
+    OPENER aBC = 70~           // Invalid: starts with lowercase
+    OPENER var2TEST = 80~      // Invalid: starts with lowercase
+    
+    // INVALID: Starting with numbers
+    OPENER 123ABC = 90~        // Invalid: starts with number
+    OPENER 99TEST = 100~       // Invalid: starts with number
+    
+    RETIRE 0~
+}
+

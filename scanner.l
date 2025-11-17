@@ -114,8 +114,8 @@ MULTI_COMMENT   "/*"([^*]|\*+[^*/])*\*+"/"
 {NEWLINE}       { line_num++; }
 
     /* Invalid tokens - Error handling */
-[a-z]+          { print_error(yytext); /* lowercase identifiers not allowed */ }
-[0-9]+{LETTER_UPPER}+   { print_error(yytext); /* invalid identifier starting with number */ }
+[a-z][a-zA-Z0-9]*    { print_error(yytext); /* invalid identifier - must start with uppercase */ }
+[0-9]+[a-zA-Z]+      { print_error(yytext); /* invalid identifier starting with number */ }
 [@#$%^&|\\]+    { print_error(yytext); /* invalid special characters */ }
 .               { print_error(yytext); /* any other invalid character */ }
 
