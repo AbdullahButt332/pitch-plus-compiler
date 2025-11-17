@@ -6,7 +6,6 @@ Line 1: PUNCTUATION → (
 Line 1: PUNCTUATION → )
 Line 1: PUNCTUATION → {
 Line 2: KEYWORD → OPENER
-Line 2: NUMBER → 123
 Line 2: OPERATOR → =
 Line 2: NUMBER → 100
 Line 2: PUNCTUATION → ~
