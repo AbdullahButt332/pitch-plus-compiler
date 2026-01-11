@@ -1,0 +1,53 @@
+// Valid Pitch++ Program - Phase 2 Test
+// Cricket Match Management System
+
+PLAY() {
+    // Variable declarations
+    OPENER RUNS = 0~
+    OPENER WICKETS = 0~
+    OPENER TARGET = 150~
+    ALLROUNDER RUNRATE = 7.5~
+    TEXTBOOK TEAMNAME = "PAKISTAN"~
+    
+    // Output team name
+    RUN("Team playing: ")~
+    RUN(TEAMNAME)~
+    
+    // For loop - simulate 20 overs
+    OVER(OPENER I = 0~ I < 20~ I+++) {
+        RUNS = RUNS + 8~
+        
+        // Conditional - check if target achieved
+        TOSS(RUNS >= TARGET) {
+            RUN("Target achieved!")~
+            OUT~
+        }
+    }
+    
+    // While loop - continue until wickets fall
+    INNING(WICKETS < 10) {
+        WICKETS+++~
+        
+        TOSS(WICKETS === 5) {
+            RUN("Half team out!")~
+        }
+        UMPIRE {
+            RUN("Batting continues")~
+        }
+    }
+    
+    // Final score output
+    RUN("Final runs: ")~
+    RUN(RUNS)~
+    RUN("Final wickets: ")~
+    RUN(WICKETS)~
+    
+    // Return statement
+    RETIRE 0~
+}
+
+// Team class
+TEAM CRICKET {
+    OPENER PLAYERS = 11~
+    TEXTBOOK CAPTAIN = "BABAR"~
+}

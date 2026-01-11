@@ -1,0 +1,23 @@
+// Invalid Pitch++ Program - Phase 2 Error Test
+// This program contains intentional syntax errors
+
+PLAY() {
+    // ERROR 1: Missing semicolon/tilde at line 6
+    OPENER RUNS = 50
+    
+    // ERROR 2: Missing closing parenthesis at line 9
+    TOSS(RUNS > 10 {
+        RUN("High score")~
+    }
+    
+    // ERROR 3: Invalid statement structure at line 14
+    OPENER = 100~
+    
+    // ERROR 4: Missing condition in OVER loop at line 17
+    OVER(OPENER I = 0~ ~ I+++) {
+        RUN("Loop")~
+    }
+    
+    // Correct statement
+    RETIRE 0~
+}
