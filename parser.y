@@ -20,7 +20,6 @@ extern char* yytext;
 void yyerror(const char* s);
 int error_count = 0;
 
-
 %}
 
 /* Token declarations from Phase 01 scanner */
@@ -74,7 +73,7 @@ stmt
     | block_stmt
     | error TILDE
     {
-        yyerror("Invalid statement - check for missing terminators (~) or syntax errors");
+        yyerror("Invalid statement syntax");
         yyerrok;
     }
     ;

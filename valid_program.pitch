@@ -31,9 +31,6 @@ PLAY() {
         TOSS(WICKETS === 5) {
             RUN("Half team out!")~
         }
-        UMPIRE {
-            RUN("Batting continues")~
-        }
     }
     
     // Final score output
@@ -44,10 +41,4 @@ PLAY() {
     
     // Return statement
     RETIRE 0~
-}
-
-// Team class
-TEAM CRICKET {
-    OPENER PLAYERS = 11~
-    TEXTBOOK CAPTAIN = "BABAR"~
 }
