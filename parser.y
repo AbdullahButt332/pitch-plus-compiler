@@ -46,11 +46,11 @@ int error_count = 0;
 program
     : PLAY LPAREN RPAREN LBRACE stmt_list RBRACE
     {
-        printf("✓ Program structure validated\n");
+        printf("Program structure validated\n");
     }
     | PLAY LPAREN RPAREN LBRACE RBRACE
     {
-        printf("✓ Empty program structure validated\n");
+        printf("Empty program structure validated\n");
     }
     ;
 
@@ -82,23 +82,23 @@ stmt
 declaration_stmt
     : OPENER IDENTIFIER EQUALS expr TILDE
     {
-        printf("✓ Integer declaration: %d\n", line_num);
+        printf("Integer declaration: %d\n", line_num);
     }
     | ALLROUNDER IDENTIFIER EQUALS expr TILDE
     {
-        printf("✓ Float declaration: %d\n", line_num);
+        printf("Float declaration: %d\n", line_num);
     }
     | TEXTBOOK IDENTIFIER EQUALS STRING TILDE
     {
-        printf("✓ String declaration: %d\n", line_num);
+        printf("String declaration: %d\n", line_num);
     }
     | OPENER IDENTIFIER TILDE
     {
-        printf("✓ Integer declaration (no init): %d\n", line_num);
+        printf("Integer declaration (no init): %d\n", line_num);
     }
     | ALLROUNDER IDENTIFIER TILDE
     {
-        printf("✓ Float declaration (no init): %d\n", line_num);
+        printf("Float declaration (no init): %d\n", line_num);
     }
     ;
 
@@ -106,15 +106,15 @@ declaration_stmt
 assignment_stmt
     : IDENTIFIER EQUALS expr TILDE
     {
-        printf("✓ Assignment statement: %d\n", line_num);
+        printf("Assignment statement: %d\n", line_num);
     }
     | IDENTIFIER INCREMENT TILDE
     {
-        printf("✓ Increment statement: %d\n", line_num);
+        printf("Increment statement: %d\n", line_num);
     }
     | IDENTIFIER DECREMENT TILDE
     {
-        printf("✓ Decrement statement: %d\n", line_num);
+        printf("Decrement statement: %d\n", line_num);
     }
     ;
 
@@ -122,15 +122,15 @@ assignment_stmt
 conditional_stmt
     : TOSS LPAREN condition RPAREN LBRACE stmt_list RBRACE
     {
-        printf("✓ If statement: %d\n", line_num);
+        printf("If statement: %d\n", line_num);
     }
     | TOSS LPAREN condition RPAREN LBRACE stmt_list RBRACE UMPIRE LBRACE stmt_list RBRACE
     {
-        printf("✓ If-else statement: %d\n", line_num);
+        printf("If-else statement: %d\n", line_num);
     }
     | TOSS LPAREN condition RPAREN LBRACE RBRACE
     {
-        printf("✓ Empty if statement: %d\n", line_num);
+        printf("Empty if statement: %d\n", line_num);
     }
     ;
 
@@ -138,15 +138,15 @@ conditional_stmt
 loop_stmt
     : OVER LPAREN assignment_expr TILDE condition TILDE update_expr RPAREN LBRACE stmt_list RBRACE
     {
-        printf("✓ For loop (OVER): %d\n", line_num);
+        printf("For loop (OVER): %d\n", line_num);
     }
     | INNING LPAREN condition RPAREN LBRACE stmt_list RBRACE
     {
-        printf("✓ While loop (INNING): %d\n", line_num);
+        printf("While loop (INNING): %d\n", line_num);
     }
     | OVER LPAREN assignment_expr TILDE condition TILDE update_expr RPAREN LBRACE RBRACE
     {
-        printf("✓ Empty for loop: %d\n", line_num);
+        printf("Empty for loop: %d\n", line_num);
     }
     ;
 
@@ -154,15 +154,15 @@ loop_stmt
 output_stmt
     : RUN LPAREN STRING RPAREN TILDE
     {
-        printf("✓ Output string: %d\n", line_num);
+        printf("Output string: %d\n", line_num);
     }
     | RUN LPAREN IDENTIFIER RPAREN TILDE
     {
-        printf("✓ Output variable: %d\n", line_num);
+        printf("Output variable: %d\n", line_num);
     }
     | RUN LPAREN NUMBER RPAREN TILDE
     {
-        printf("✓ Output number: %d\n", line_num);
+        printf("Output number: %d\n", line_num);
     }
     ;
 
@@ -170,11 +170,11 @@ output_stmt
 return_stmt
     : RETIRE expr TILDE
     {
-        printf("✓ Return statement: %d\n", line_num);
+        printf("Return statement: %d\n", line_num);
     }
     | RETIRE TILDE
     {
-        printf("✓ Return void: %d\n", line_num);
+        printf("Return void: %d\n", line_num);
     }
     ;
 
@@ -182,11 +182,11 @@ return_stmt
 control_stmt
     : OUT TILDE
     {
-        printf("✓ Break statement: %d\n", line_num);
+        printf("Break statement: %d\n", line_num);
     }
     | NOTOUT TILDE
     {
-        printf("✓ Continue statement: %d\n", line_num);
+        printf("Continue statement: %d\n", line_num);
     }
     ;
 
@@ -194,11 +194,11 @@ control_stmt
 class_stmt
     : TEAM IDENTIFIER LBRACE stmt_list RBRACE
     {
-        printf("✓ Class definition: %d\n", line_num);
+        printf("Class definition: %d\n", line_num);
     }
     | TEAM IDENTIFIER LBRACE RBRACE
     {
-        printf("✓ Empty class definition: %d\n", line_num);
+        printf("Empty class definition: %d\n", line_num);
     }
     ;
 
@@ -206,7 +206,7 @@ class_stmt
 block_stmt
     : LBRACE stmt_list RBRACE
     {
-        printf("✓ Block statement: %d\n", line_num);
+        printf("Block statement: %d\n", line_num);
     }
     ;
 
@@ -218,9 +218,6 @@ condition
     | expr GREATER_THAN expr
     | expr LESS_EQUAL expr
     | expr GREATER_EQUAL expr
-    | IDENTIFIER EQUAL_EQUAL LEGALBALL
-    | IDENTIFIER EQUAL_EQUAL NOBALL
-    | IDENTIFIER
     ;
 
 /* Rule 14: Expressions */
@@ -262,8 +259,8 @@ update_expr
 
 /* Error handling function */
 void yyerror(const char* s) {
-    fprintf(stderr, "❌ SYNTAX ERROR at Line %d: %s\n", line_num, s);
-    fprintf(stderr, "   Near token: '%s'\n", yytext);
+    fprintf(stderr, "SYNTAX ERROR at Line %d: %s\n", line_num, s);
+    fprintf(stderr, "Near token: '%s'\n", yytext);
     error_count++;
 }
 
@@ -290,11 +287,11 @@ int main(int argc, char** argv) {
     printf("\n=== Analysis Complete ===\n");
     
     if (parse_result == 0 && error_count == 0) {
-        printf("✅ SYNTAX ANALYSIS SUCCESSFUL\n");
+        printf("SYNTAX ANALYSIS SUCCESSFUL\n");
         printf("   No syntax errors found!\n");
         printf("   Program is grammatically correct.\n");
     } else {
-        printf("❌ SYNTAX ANALYSIS FAILED\n");
+        printf("SYNTAX ANALYSIS FAILED\n");
         printf("   Total errors found: %d\n", error_count);
         printf("   Program has syntax errors.\n");
     }
