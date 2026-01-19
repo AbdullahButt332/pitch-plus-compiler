@@ -45,13 +45,7 @@ int error_count = 0;
 /* Rule 1: Program Structure */
 program
     : PLAY LPAREN RPAREN LBRACE stmt_list RBRACE
-    {
-        printf("Program structure validated\n");
-    }
     | PLAY LPAREN RPAREN LBRACE RBRACE
-    {
-        printf("Empty program structure validated\n");
-    }
     ;
 
 /* Rule 2: Statement List */
@@ -81,133 +75,61 @@ stmt
 /* Rule 4: Variable Declaration */
 declaration_stmt
     : OPENER IDENTIFIER EQUALS expr TILDE
-    {
-        printf("Integer declaration: %d\n", line_num);
-    }
     | ALLROUNDER IDENTIFIER EQUALS expr TILDE
-    {
-        printf("Float declaration: %d\n", line_num);
-    }
     | TEXTBOOK IDENTIFIER EQUALS STRING TILDE
-    {
-        printf("String declaration: %d\n", line_num);
-    }
     | OPENER IDENTIFIER TILDE
-    {
-        printf("Integer declaration (no init): %d\n", line_num);
-    }
     | ALLROUNDER IDENTIFIER TILDE
-    {
-        printf("Float declaration (no init): %d\n", line_num);
-    }
     ;
 
 /* Rule 5: Assignment Statement */
 assignment_stmt
     : IDENTIFIER EQUALS expr TILDE
-    {
-        printf("Assignment statement: %d\n", line_num);
-    }
     | IDENTIFIER INCREMENT TILDE
-    {
-        printf("Increment statement: %d\n", line_num);
-    }
     | IDENTIFIER DECREMENT TILDE
-    {
-        printf("Decrement statement: %d\n", line_num);
-    }
     ;
 
 /* Rule 6: Conditional Statement (TOSS = if, UMPIRE = else) */
 conditional_stmt
     : TOSS LPAREN condition RPAREN LBRACE stmt_list RBRACE
-    {
-        printf("If statement: %d\n", line_num);
-    }
     | TOSS LPAREN condition RPAREN LBRACE stmt_list RBRACE UMPIRE LBRACE stmt_list RBRACE
-    {
-        printf("If-else statement: %d\n", line_num);
-    }
     | TOSS LPAREN condition RPAREN LBRACE RBRACE
-    {
-        printf("Empty if statement: %d\n", line_num);
-    }
     ;
 
 /* Rule 7: Loop Statements */
 loop_stmt
     : OVER LPAREN assignment_expr TILDE condition TILDE update_expr RPAREN LBRACE stmt_list RBRACE
-    {
-        printf("For loop (OVER): %d\n", line_num);
-    }
     | INNING LPAREN condition RPAREN LBRACE stmt_list RBRACE
-    {
-        printf("While loop (INNING): %d\n", line_num);
-    }
     | OVER LPAREN assignment_expr TILDE condition TILDE update_expr RPAREN LBRACE RBRACE
-    {
-        printf("Empty for loop: %d\n", line_num);
-    }
     ;
 
 /* Rule 8: Output Statement */
 output_stmt
     : RUN LPAREN STRING RPAREN TILDE
-    {
-        printf("Output string: %d\n", line_num);
-    }
     | RUN LPAREN IDENTIFIER RPAREN TILDE
-    {
-        printf("Output variable: %d\n", line_num);
-    }
     | RUN LPAREN NUMBER RPAREN TILDE
-    {
-        printf("Output number: %d\n", line_num);
-    }
     ;
 
 /* Rule 9: Return Statement */
 return_stmt
     : RETIRE expr TILDE
-    {
-        printf("Return statement: %d\n", line_num);
-    }
     | RETIRE TILDE
-    {
-        printf("Return void: %d\n", line_num);
-    }
     ;
 
 /* Rule 10: Control Flow Statements */
 control_stmt
     : OUT TILDE
-    {
-        printf("Break statement: %d\n", line_num);
-    }
     | NOTOUT TILDE
-    {
-        printf("Continue statement: %d\n", line_num);
-    }
     ;
 
 /* Rule 11: Class/Team Definition */
 class_stmt
     : TEAM IDENTIFIER LBRACE stmt_list RBRACE
-    {
-        printf("Class definition: %d\n", line_num);
-    }
     | TEAM IDENTIFIER LBRACE RBRACE
-    {
-        printf("Empty class definition: %d\n", line_num);
-    }
     ;
 
 /* Rule 12: Block Statement */
 block_stmt
     : LBRACE stmt_list RBRACE
-    {
-        printf("Block statement: %d\n", line_num);
-    }
     ;
 
 /* Rule 13: Conditions */
@@ -278,22 +200,12 @@ int main(int argc, char** argv) {
 
     yyin = input_file;
     
-    printf("=== Pitch++ Syntax Analyzer (Phase 2) ===\n");
-    printf("Analyzing: %s\n\n", argv[1]);
-    
-    printf("--- Parsing Progress ---\n");
     int parse_result = yyparse();
-    
-    printf("\n=== Analysis Complete ===\n");
     
     if (parse_result == 0 && error_count == 0) {
         printf("SYNTAX ANALYSIS SUCCESSFUL\n");
-        printf("   No syntax errors found!\n");
-        printf("   Program is grammatically correct.\n");
     } else {
         printf("SYNTAX ANALYSIS FAILED\n");
-        printf("   Total errors found: %d\n", error_count);
-        printf("   Program has syntax errors.\n");
     }
     
     fclose(input_file);
